@@ -2,6 +2,7 @@ const { app, Menu, Tray } = require('electron')
 const path = require('path')
 const { show: showMainWindow } = require('../windows/main')
 const { create: createAboutWindow } = require('../windows/about')
+const { create: createSetWindow } = require('../windows/set')
 
 // 托盘
 let tray
@@ -29,6 +30,10 @@ function setAppMenu() {
         {
           label: 'About',
           click: createAboutWindow
+        },
+        {
+          label: 'Setting',
+          click: createSetWindow
         },
         { type: 'separator' },
         { role: 'services' },

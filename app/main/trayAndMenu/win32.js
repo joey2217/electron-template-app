@@ -2,6 +2,7 @@ const { app, Menu, Tray } = require('electron')
 const path = require('path')
 const { show: showMainWindow } = require('../windows/main')
 const { create: createAboutWindow } = require('../windows/about')
+const { create: createSetWindow } = require('../windows/set')
 
 let tray
 
@@ -11,6 +12,7 @@ app.whenReady().then(() => {
   const contextMenu = Menu.buildFromTemplate([
     { label: '打开' + app.name, click: showMainWindow },
     { label: '关于' + app.name, click: createAboutWindow },
+    { label: '设置' + app.name, click: createSetWindow },
     { type: 'separator' },
     { label: '退出', click: () => { app.quit() } }
   ])
